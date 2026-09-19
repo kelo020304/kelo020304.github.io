@@ -1,387 +1,147 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ziheng Ji | 季梓衡</title>
-  <meta name="description" content="Ziheng Ji (季梓衡) — M.S. student at Shanghai Jiao Tong University. Embodied AI, Vision-Language-Action models, and robot simulation." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
-  <style>
-    :root{
-      --accent:#0078D4; --accent-2:#5C2D91;
-      --bg:#ffffff; --surface:#ffffff; --text:#1c1d20; --muted:#6b7280;
-      --border:#e7e9ee; --nav-bg:rgba(255,255,255,.85);
-      --shadow:0 4px 20px rgba(0,0,0,.06); --code-bg:#f3f4f6;
-    }
-    html[data-theme="dark"]{
-      --bg:#0f1115; --surface:#171a21; --text:#e6e8ec; --muted:#9aa3af;
-      --border:#262b34; --nav-bg:rgba(15,17,21,.85);
-      --shadow:0 4px 24px rgba(0,0,0,.5); --code-bg:#1d2128;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:80px}
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
-      color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width:880px;margin:0 auto;padding:0 24px}
-
-    nav.topnav{position:sticky;top:0;z-index:100;backdrop-filter:saturate(180%) blur(12px);
-      background:var(--nav-bg);border-bottom:1px solid var(--border)}
-    .topnav .inner{max-width:880px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
-    .brand{font-weight:700;font-size:1.05rem;white-space:nowrap;flex:0 0 auto}
-    .brand a{color:var(--text)}
-    .navlinks{display:flex;gap:14px;align-items:center}
-    .navlinks a{color:var(--text);font-size:.93rem;font-weight:500;opacity:.8;padding:6px 11px;border-radius:20px;transition:all .18s;white-space:nowrap}
-    .navlinks a:hover{opacity:1;background:var(--code-bg);text-decoration:none}
-    .navlinks a.active{opacity:1;color:var(--accent);background:var(--code-bg)}
-    .theme-toggle{background:none;border:1px solid var(--border);border-radius:8px;color:var(--text);
-      cursor:pointer;width:36px;height:32px;font-size:1rem;display:inline-flex;align-items:center;justify-content:center}
-    .theme-toggle:hover{border-color:var(--accent)}
-    .nav-burger{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer}
-
-    .hero{padding:54px 0 24px}
-    .hero-grid{display:grid;grid-template-columns:1fr 230px;gap:40px;align-items:center}
-    .hero h1{font-family:Georgia,"Times New Roman",var(--font-serif),serif;font-size:2.5rem;margin:0 0 8px;font-weight:700;letter-spacing:.3px}
-    .hero h1 .sep{color:var(--border);font-weight:400;margin:0 8px}
-    .hero h1 .zh{color:var(--muted);font-weight:500}
-    .hero .tagline{font-size:1.05rem;color:var(--muted);margin:0 0 16px}
-    .hero .tagline a{color:var(--accent)}
-    .hero .welcome{font-size:1.12rem;font-weight:600;color:var(--text);margin:0 0 12px}
-    .hero .bio{color:var(--muted);margin:0 0 16px}
-    .hero .bio b{color:var(--text);font-weight:600}
-    .hero .bio i{font-style:italic}
-    .hero .bio a{color:var(--accent)}
-    .photo-wrap{text-align:center}
-    .hero .photo{width:230px;height:230px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow);border:4px solid var(--surface);outline:1px solid var(--border)}
-    .photo-cap{margin-top:14px;line-height:1.4}
-    .photo-cap .en{font-family:Georgia,serif;font-weight:700;font-size:1.05rem;display:block}
-    .photo-cap .zh{color:var(--muted);font-size:.95rem}
-    .socials{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-    .socials a{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);
-      display:inline-flex;align-items:center;justify-content:center;color:var(--muted);font-size:1.05rem;background:var(--surface);transition:all .2s}
-    .socials a:hover{color:#fff;background:var(--accent);border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
-    .name-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:8px}
-    .name-row h1{margin:0}
-    .uni-badge{height:56px;width:auto}
-
-    section{padding:36px 0;border-top:1px solid var(--border)}
-    section h2{font-size:1.5rem;margin:0 0 22px;font-weight:700;display:inline-block}
-    section h2::after{content:"";display:block;width:48px;height:3px;margin-top:6px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:3px}
-
-    .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow)}
-    .card h3{margin:0 0 6px;font-size:1.05rem}
-    .card p{margin:0;color:var(--muted);font-size:.94rem}
-    .card .ico{font-size:1.3rem;color:var(--accent);margin-bottom:8px}
-
-    .news-list{list-style:none;padding:0;margin:0}
-    .news-list li{display:flex;gap:18px;padding:11px 0;border-bottom:1px dashed var(--border)}
-    .news-list li:last-child{border-bottom:none}
-    .news-date{flex:0 0 96px;color:var(--accent);font-weight:600;font-size:.88rem;padding-top:1px}
-    .news-body{color:var(--text)}
-
-    .pub{display:grid;grid-template-columns:170px 1fr;gap:22px;padding:18px 0;border-bottom:1px solid var(--border)}
-    .pub:last-child{border-bottom:none}
-    .pub-thumb{width:170px;height:108px;border-radius:10px;border:1px solid var(--border);object-fit:cover;
-      display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;background:var(--code-bg)}
-    .pub h3{margin:0 0 4px;font-size:1.06rem;line-height:1.45}
-    .pub .authors{color:var(--muted);font-size:.92rem;margin:0 0 3px}
-    .pub .authors b{color:var(--text)}
-    .pub .venue{font-style:italic;color:var(--accent-2);font-size:.9rem;margin:0 0 10px}
-    .btns{display:flex;flex-wrap:wrap;gap:8px}
-    .btn{font-size:.82rem;padding:4px 12px;border-radius:20px;border:1px solid var(--accent);color:var(--accent);background:transparent;transition:all .18s}
-    .btn:hover{background:var(--accent);color:#fff;text-decoration:none}
-
-    .exp{display:grid;grid-template-columns:1fr;gap:16px}
-    .xp{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;box-shadow:var(--shadow)}
-    .xp .head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
-    .xp .head-left{display:flex;align-items:center;gap:12px}
-    .xp .logo{width:40px;height:40px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);padding:4px;flex:0 0 auto}
-    .xp h3{margin:0;font-size:1.08rem}
-    .xp .role{color:var(--muted);font-size:.92rem}
-    .xp .date{color:var(--accent);font-weight:600;font-size:.85rem;white-space:nowrap}
-    .xp ul{margin:10px 0 0;padding-left:18px}
-    .xp li{margin-bottom:6px;color:var(--muted);font-size:.95rem}
-    .xp li b{color:var(--text)}
-
-    ul.fsd{margin:0;padding-left:18px}
-    ul.fsd li{margin-bottom:9px}
-    .car-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
-    .car-gallery figure{margin:0}
-    .car-gallery img{width:100%;height:120px;object-fit:cover;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow)}
-    .car-gallery figcaption{text-align:center;color:var(--muted);font-size:.82rem;margin-top:6px}
-    .award{font-weight:600;color:var(--accent-2)}
-    .tag{display:inline-block;background:var(--code-bg);color:var(--text);border-radius:6px;
-      padding:1px 8px;font-size:.82rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin:2px 3px}
-
-    .honors{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
-    .honors li{display:flex;gap:10px;color:var(--muted);font-size:.95rem;padding:3px 0}
-    .honors li i{color:var(--accent);margin-top:5px;font-size:.8rem}
-    .honors li b{color:var(--text)}
-
-    .contact-list{list-style:none;padding:0;margin:0}
-    .contact-list li{padding:6px 0;color:var(--muted)}
-    .contact-list li b{color:var(--text);margin-right:8px}
-
-    footer{text-align:center;color:var(--muted);font-size:.85rem;padding:32px 0 48px;border-top:1px solid var(--border)}
-
-    @media (max-width:720px){
-      .hero-grid{grid-template-columns:1fr;text-align:center}
-      .hero .photo{width:180px;height:180px;margin:0 auto}
-      .socials{justify-content:center}
-      .cards{grid-template-columns:1fr}
-      .pub{grid-template-columns:1fr}
-      .pub-thumb{width:100%;height:140px}
-      .car-gallery{grid-template-columns:1fr 1fr}
-      .honors{grid-template-columns:1fr}
-      .navlinks{display:none}
-      .navlinks.open{display:flex;flex-direction:column;position:absolute;top:60px;right:16px;
-        background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 20px;gap:14px;box-shadow:var(--shadow)}
-      .nav-burger{display:inline-block}
-    }
-  </style>
+  <meta name="description" content="Ziheng Ji, master's student at Shanghai Jiao Tong University. End-to-end policy learning, embodied AI, and Sim-to-Real transfer.">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-  <nav class="topnav">
-    <div class="inner">
-      <div class="brand"><a href="#top">Ziheng Ji</a></div>
-      <div class="navlinks" id="navlinks">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#news">News</a>
-        <a href="#experience">Experience</a>
-        <a href="#publications">Publications</a>
-        <a href="#formula">Formula Student</a>
-        <a href="#contact">Contact</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
-      </div>
-      <button class="nav-burger" id="burger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-    </div>
-  </nav>
-
-  <header class="hero" id="top">
-    <div class="container">
-      <div class="hero-grid" id="about">
-        <div>
-          <div class="name-row">
-            <h1>Ziheng Ji <span class="sep">|</span> <span class="zh">季梓衡</span></h1>
-            <img class="uni-badge" src="assets/sjtu.png" alt="Shanghai Jiao Tong University" title="Shanghai Jiao Tong University" />
-          </div>
-          <p class="tagline">M.S. Student · <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noopener">Shanghai Jiao Tong University</a> · Shanghai, China</p>
-          <p class="welcome">Welcome to my homepage! 👋</p>
-          <p class="bio">
-            I am a Master's student at the Global Institute of Future Technology, Shanghai Jiao Tong University,
-            advised by Prof. Tong Qin. My research centers on <b>embodied AI</b>, <b>vision-language-action (VLA) models</b>,
-            and <b>robot simulation</b> — building high-fidelity digital twins (<i>3DGS</i>) and Sim2Real policy-training
-            pipelines that let robots learn in reconstructed real-world scenes and transfer to physical hardware.
-          </p>
-          <p class="bio">
-            Previously I received my B.E. in Vehicle Engineering from Beijing Institute of Technology (BIT), where I spent
-            five years on driverless Formula Student racing. I am currently an algorithm engineer at Xiaomi Embodied Intelligence.
-          </p>
-          <p class="bio">
-            I am always open to discussions and collaborations — feel free to <a href="mailto:jiziheng@sjtu.edu.cn">reach out</a>!
-          </p>
-          <div class="socials">
-            <a href="mailto:jiziheng@sjtu.edu.cn" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://scholar.google.com/citations?user=Bebu2tcAAAAJ&hl=en" title="Google Scholar" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i></a>
-            <a href="https://github.com/kelo020304" title="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-            <a href="assets/cv.pdf" title="Curriculum Vitae" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf"></i></a>
-          </div>
-        </div>
-        <div class="photo-wrap">
-          <img class="photo" src="assets/profile.jpg" alt="Ziheng Ji" onerror="this.onerror=null;this.src='assets/profile.svg'" />
-          <div class="photo-cap"><span class="en">Ziheng Ji</span><span class="zh">季梓衡</span></div>
-        </div>
-      </div>
+<body id="top">
+  <a class="skip-link" href="#about">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="wordmark" href="#top">Ziheng Ji<span aria-hidden="true">//</span></a>
+      <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#more">More</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-
-    <section id="research">
-      <h2>Research Interests</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="ico"><i class="fa-solid fa-robot"></i></div>
-          <h3>Embodied AI &amp; VLA</h3>
-          <p>Vision-language-action policies for long-horizon, contact-rich manipulation on real robots.</p>
-        </div>
-        <div class="card">
-          <div class="ico"><i class="fa-solid fa-cubes"></i></div>
-          <h3>Robot Simulation &amp; Digital Twins</h3>
-          <p>Real-to-sim pipelines with Isaac Sim, MuJoCo and 3DGS rendering for high-fidelity training.</p>
-        </div>
-        <div class="card">
-          <div class="ico"><i class="fa-solid fa-arrows-rotate"></i></div>
-          <h3>Sim2Real Transfer</h3>
-          <p>Imitation &amp; reinforcement learning that crosses the reality gap to physical hardware.</p>
-        </div>
-        <div class="card">
-          <div class="ico"><i class="fa-solid fa-map-location-dot"></i></div>
-          <h3>SLAM &amp; End-to-End Driving</h3>
-          <p>Localization, 3D reconstruction and end-to-end perception-to-planning systems.</p>
-        </div>
+  <div class="page-layout">
+    <aside class="profile" aria-label="Personal information">
+      <img class="portrait" src="assets/profile.jpg" alt="Ziheng Ji" width="240" height="270">
+      <h1>Ziheng Ji <span lang="zh">季梓衡</span></h1>
+      <p class="degree">Master's student at SJTU</p>
+      <p class="profile-interests">End-to-end policy learning<br>Embodied AI · Sim-to-Real</p>
+      <a class="cv-button" href="assets/cv.pdf" target="_blank" rel="noopener">Curriculum vitae <span>EN ↗</span></a>
+      <a class="cv-button" href="assets/cv-zh.pdf" target="_blank" rel="noopener">中文简历 <span>ZH ↗</span></a>
+      <div class="social-links">
+        <a href="mailto:jiziheng@sjtu.edu.cn">Email</a>
+        <a href="https://github.com/kelo020304" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=Bebu2tcAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
       </div>
-    </section>
+      <p class="profile-email"><a href="mailto:jiziheng@sjtu.edu.cn">jiziheng@sjtu.edu.cn</a></p>
+      <p class="updated">Updated September 19, 2026</p>
+    </aside>
 
-    <section id="news">
-      <h2>News</h2>
-      <ul class="news-list">
-        <li><span class="news-date">2026</span><span class="news-body">Our paper <b>Scene2Gym</b> (first author) was accepted to <b>IROS 2026</b>. 🎉</span></li>
-        <li><span class="news-date">2024</span><span class="news-body">Our paper <b>ParkingE2E</b> was accepted to <b>IROS 2024 (Oral)</b>.</span></li>
-      </ul>
-    </section>
+    <main>
+      <section id="about" class="about">
+        <p class="eyebrow">ROBOT LEARNING &amp; AUTONOMOUS DRIVING</p>
+        <h2>Hello, I'm Ziheng<span class="accent">.</span></h2>
+        <p>I am a master's student at the <strong>Global Institute of Technology</strong>, <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noopener">Shanghai Jiao Tong University</a>, advised by Prof. Tong Qin. I received my bachelor's degree in Vehicle Engineering from Beijing Institute of Technology.</p>
+        <p>My research focuses on <strong>end-to-end policy learning and Sim-to-Real transfer</strong>. I build interactive digital twins of real scenes and use them to train and evaluate robot policies. I also work on vision-language-action models for manipulation and camera-based end-to-end autonomous parking.</p>
+        <p>I interned with Xiaomi's Embodied AI Division from April to August 6, 2026. I will join <strong>Zhuoyu (卓驭)</strong> on September 21, 2026. Before graduate school, I led the BIT Formula Student Driverless team and worked on autonomous racecars.</p>
+        <div class="callout">I am interested in end-to-end algorithms for autonomous driving and robotics. For research discussions or opportunities, <a href="mailto:jiziheng@sjtu.edu.cn">please get in touch</a>.</div>
+      </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="exp">
-        <div class="xp">
-          <div class="head">
-            <div class="head-left">
-              <img class="logo" src="assets/xiaomi.webp" alt="Xiaomi" />
-              <h3>Xiaomi · Embodied Intelligence <span class="role">— Algorithm Engineer</span></h3>
-            </div>
-            <span class="date">Apr 2026 – Present</span>
+      <section id="news">
+        <h2>News</h2>
+        <ul class="news-list">
+          <li><time datetime="2026-09-21">Sep. 2026</time><span>Joining <strong>Zhuoyu</strong> on September 21 (incoming).</span></li>
+          <li><time datetime="2026-08-06">Aug. 2026</time><span>Completed my internship at Xiaomi's Embodied AI Division.</span></li>
+          <li><span class="news-date">2026</span><span><strong>Scene2Gym</strong>, my first-author paper, was accepted to IROS 2026.</span></li>
+          <li><span class="news-date">2024</span><span><strong>ParkingE2E</strong> was accepted to IROS 2024 as an oral presentation.</span></li>
+        </ul>
+      </section>
+
+      <section id="publications">
+        <div class="section-heading"><h2>Publications</h2><span class="section-note">Published &amp; accepted</span></div>
+        <article class="publication">
+          <img src="assets/scene2gym.png" alt="Scene2Gym real-scene reconstruction and robot simulation pipeline" width="240" height="155" loading="lazy">
+          <div>
+            <div class="badges"><span class="badge">IROS 2026</span><span class="badge neutral">First author</span></div>
+            <h3>Scene2Gym: Real-World Scenes to Interactive Robot Training Environments</h3>
+            <p class="authors"><strong>Ziheng Ji</strong>, Fengyi Chen, Ziqian Wang, Zhitao Wang, Feng Qiu, Wenguo Hou, Ming Yang, Tong Qin</p>
+            <p class="description">3DGS reconstruction and physics-rendering co-simulation for policy training. Real-robot success reached 70-82% with imitation learning and 56% with zero-shot visual RL.</p>
+            <div class="tags"><span>Sim-to-Real</span><span>Robot learning</span><span>3DGS</span></div>
           </div>
-          <ul>
-            <li>Building an end-to-end robot simulation training/evaluation platform on <b>Isaac Sim + 3DGS</b>, with real-scene reconstruction, collision-asset integration and automated scene/data generation for large-scale <b>VLA</b> training and Sim2Real validation.</li>
-            <li>Developing embodied scene-synthesis algorithms that generate interactive, editable digital-twin scenes from real video — closing the loop from task-data generation and <b>π0.5</b> policy training to <b>AgiBot G2</b> real-robot evaluation.</li>
-          </ul>
-        </div>
-        <div class="xp">
-          <div class="head">
-            <div class="head-left">
-              <img class="logo" src="assets/catl.png" alt="CATL" />
-              <h3>CATL · Intelligent Manufacturing Division <span class="role">— Algorithm Engineer</span></h3>
-            </div>
-            <span class="date">Sep 2025 – Dec 2025</span>
+        </article>
+        <article class="publication">
+          <img src="assets/parkinge2e.png" alt="ParkingE2E surround-view perception and trajectory planning pipeline" width="240" height="155" loading="lazy">
+          <div>
+            <div class="badges"><span class="badge">IROS 2024 · Oral</span><span class="badge neutral">Second author</span></div>
+            <h3>ParkingE2E: Camera-based End-to-end Parking Network, from Images to Planning</h3>
+            <p class="authors">Changze Li, <strong>Ziheng Ji</strong>, Zhe Chen, Tong Qin, Ming Yang</p>
+            <p class="description">Surround-view BEV features fused with target-slot features, followed by Transformer-based autoregressive trajectory generation. Approximately 85% parking success in real-vehicle tests.</p>
+            <div class="paper-links"><a href="https://arxiv.org/pdf/2408.02061" target="_blank" rel="noopener">Paper ↗</a><a href="https://github.com/qintonguav/ParkingE2E" target="_blank" rel="noopener">Code ↗</a><a href="https://www.youtube.com/watch?v=urOEHJH1TBQ" target="_blank" rel="noopener">Video ↗</a></div>
+            <div class="tags"><span>Autonomous driving</span><span>End-to-end planning</span></div>
           </div>
-          <ul>
-            <li>Built contact-rich manipulation algorithms for industrial wiring-harness insertion (CAD prior + visual pose estimation + insertion strategy).</li>
-            <li>Developed an end-to-end pipeline with semantic segmentation and <b>visuotactile fusion</b> for industrial-grade manipulation.</li>
-            <li>Modified end-effector hardware to enable visuotactile multimodal sensing.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <section id="publications">
-      <h2>Publications</h2>
+        <p class="review-note">4 manuscripts are currently under review. Details are withheld during anonymous review.</p>
+      </section>
 
-      <div class="pub">
-        <img class="pub-thumb" src="assets/scene2gym.png" alt="Scene2Gym" />
-        <div>
-          <h3>Scene2Gym: Real-World Scenes to Interactive Robot Training Environments</h3>
-          <p class="authors"><b>Ziheng Ji</b>, Fengyi Chen, Ziqian Wang, Zhitao Wang, Feng Qiu, Wenguo Hou, Ming Yang, Tong Qin &nbsp;·&nbsp; <b>First author</b></p>
-          <p class="venue">IROS 2026</p>
-          <p style="margin:0 0 10px;color:var(--muted);font-size:.92rem">Automated real-to-sim pipeline (3DGS reconstruction + physics co-simulation); IL real-robot success 70–82% and 56% zero-shot visual-RL success on contact-rich tasks.</p>
-        </div>
-      </div>
-
-      <div class="pub">
-        <img class="pub-thumb" src="assets/parkinge2e.png" alt="ParkingE2E" />
-        <div>
-          <h3>ParkingE2E: Camera-based End-to-end Parking Network, from Images to Planning</h3>
-          <p class="authors">Changze Li, <b>Ziheng Ji</b>, Zhe Chen, Tong Qin, Ming Yang &nbsp;·&nbsp; <b>Second author</b></p>
-          <p class="venue">IROS 2024 (Oral)</p>
-          <p style="margin:0 0 10px;color:var(--muted);font-size:.92rem">LSS-based BEV perception + Transformer autoregressive trajectory generation; ~85% parking success across underground and on-road scenarios.</p>
-          <div class="btns">
-            <a class="btn" href="https://arxiv.org/pdf/2408.02061" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> arXiv</a>
-            <a class="btn" href="https://github.com/qintonguav/ParkingE2E" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-            <a class="btn" href="https://www.youtube.com/watch?v=urOEHJH1TBQ" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Video</a>
+      <section id="experience">
+        <h2>Experience</h2>
+        <article class="experience-item incoming">
+          <a href="https://www.zyt.com/zh" target="_blank" rel="noopener" aria-label="Zhuoyu official website"><img class="company-logo" src="assets/zhuoyu.jpg" alt="卓驭 ZYT" width="48" height="48" loading="lazy"></a>
+          <div><div class="entry-heading"><h3>Zhuoyu <span lang="zh">卓驭</span></h3><span class="date">Sep. 21, 2026 (expected)</span></div><p class="role">Incoming</p></div>
+        </article>
+        <article class="experience-item">
+          <img class="company-logo" src="assets/xiaomi.webp" alt="Xiaomi" width="48" height="48" loading="lazy">
+          <div><div class="entry-heading"><h3>Xiaomi</h3><span class="date">Apr. 2026 - Aug. 6, 2026</span></div><p class="role">Algorithm Engineer Intern · Embodied AI Division</p>
+            <ul><li>Built an Isaac Sim and 3DGS platform for policy training and evaluation, with real-scene reconstruction, automated scene generation, and synthetic task data.</li><li>Contributed to imitation learning pretraining and policy deployment. Completed closed-loop real-robot validation on the <strong>AgileX Cobot Magic dual-arm robot</strong>.</li></ul>
           </div>
+        </article>
+        <article class="experience-item">
+          <img class="company-logo" src="assets/catl.png" alt="CATL" width="48" height="48" loading="lazy">
+          <div><div class="entry-heading"><h3>CATL</h3><span class="date">Sep. 2025 - Dec. 2025</span></div><p class="role">Algorithm Engineer Intern · Intelligent Manufacturing Division</p>
+            <ul><li>Designed a single-arm manipulation pipeline for coolant-line connector insertion using CAD priors, visual pose estimation, semantic segmentation, and visuotactile sensing.</li><li>Adapted the end effector for visuotactile sensing and tested the insertion policy on hardware.</li></ul>
+          </div>
+        </article>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <article class="education-item"><div class="entry-heading"><h3>Shanghai Jiao Tong University</h3><span class="date">Sep. 2024 - Mar. 2027 (expected)</span></div><p><strong>M.Eng. in Electronic Information</strong><br>Global Institute of Technology · Advisor: Prof. Tong Qin</p></article>
+        <article class="education-item"><div class="entry-heading"><h3>Beijing Institute of Technology</h3><span class="date">Sep. 2020 - Jul. 2024</span></div><p><strong>B.Eng. in Vehicle Engineering</strong><br>School of Mechanical Engineering</p></article>
+      </section>
+
+      <section id="projects">
+        <h2>Research projects</h2>
+        <article class="project-item"><div class="entry-heading"><h3>Simulation-ready environments</h3><span class="date">2025 - Present</span></div><p>I work on scene reconstruction and interactive simulation environments for robot learning. Further details will be shared after anonymous review.</p></article>
+        <article class="project-item"><div class="entry-heading"><h3>VLA policies for bimanual manipulation</h3><span class="date">2025 - Present</span></div><p>Reproduced the π*0.6 Recap pipeline, including imitation learning pretraining and reinforcement learning post-training. Built the data collection, training, and inference workflow for long-horizon manipulation of deformable objects, reaching approximately 70% real-robot success from randomized garment configurations.</p></article>
+      </section>
+
+      <section id="more">
+        <h2>Beyond research</h2>
+        <h3>Formula Student Driverless</h3>
+        <p>I was part of <a href="https://www.bitfsd.com/homepage-en" target="_blank" rel="noopener">BITFSD</a> from 2020 to 2024, serving as Mechanical Team Lead (2021-2023) and Team Captain (2024). Our team won the national championship in <strong>2021 and 2022</strong>.</p>
+        <p>I worked on drive-by-wire chassis and steering design, vehicle-dynamics simulation, SLAM, and perception. In 2025, I served as a judge for the driverless category, covering software design defenses and dynamic events.</p>
+        <div class="car-gallery">
+          <figure><img src="assets/car2022.png" alt="BITFSD 2021 and 2022 racecar" loading="lazy" width="360" height="240"><figcaption>2021 / 2022</figcaption></figure>
+          <figure><img src="assets/car2023.jpg" alt="BITFSD 2023 racecar" loading="lazy" width="360" height="240"><figcaption>2023</figcaption></figure>
+          <figure><img src="assets/car2024.jpg" alt="BITFSD 2024 racecar" loading="lazy" width="360" height="240"><figcaption>2024</figcaption></figure>
+          <figure><img src="assets/car2025.png" alt="BITFSD 2025 racecar" loading="lazy" width="360" height="240"><figcaption>2025</figcaption></figure>
         </div>
-      </div>
-    </section>
-
-    <section id="formula">
-      <h2>Formula Student</h2>
-      <p class="award"><i class="fa-solid fa-trophy"></i> Two-time National Champion, Formula Student Driverless China (2021, 2022)</p>
-      <ul class="fsd">
-        <li><b>Team:</b> Beijing Institute of Technology Formula Student Driverless (BITFSD), 2020–2024.
-          <a href="https://www.bitfsd.com/homepage-en" target="_blank" rel="noopener">Website</a> ·
-          <a href="https://github.com/bitfsd" target="_blank" rel="noopener">GitHub</a></li>
-        <li><b>Roles:</b> Mechanical Team Lead (2021–2023), <b>Team Captain (2024)</b>.</li>
-        <li><b>Work:</b> steer-by-wire &amp; drive-by-wire chassis design and manufacturing, steering-dynamics simulation, plus SLAM, localization and perception for the autonomous racecar.</li>
-        <li><b>2025:</b> served as a <b>judge</b> for the driverless category — software (perception &amp; localization) design defense and dynamic-event judging.</li>
-      </ul>
-      <div style="margin-top:10px">
-        <span class="tag">SLAM</span><span class="tag">Drive-by-wire</span><span class="tag">Autonomous Steering</span><span class="tag">Perception</span>
-      </div>
-      <p style="margin:22px 0 0;color:var(--muted);font-size:.92rem">Four BITFSD driverless racecars I helped develop (2022–2025) —
-        <a href="https://www.bitfsd.com/homepage-en" target="_blank" rel="noopener">bitfsd.com</a>:</p>
-      <div class="car-gallery">
-        <figure><img src="assets/car2022.png" alt="BITFSD 2021–2022 driverless racecar" /><figcaption>2021, 2022</figcaption></figure>
-        <figure><img src="assets/car2023.jpg" alt="BITFSD 2023 driverless racecar" /><figcaption>2023</figcaption></figure>
-        <figure><img src="assets/car2024.jpg" alt="BITFSD 2024 driverless racecar" /><figcaption>2024</figcaption></figure>
-        <figure><img src="assets/car2025.png" alt="BITFSD 2025 driverless racecar" /><figcaption>2025</figcaption></figure>
-      </div>
-    </section>
-
-    <section id="honors">
-      <h2>Honors &amp; Awards</h2>
-      <ul class="honors">
-        <li><i class="fa-solid fa-medal"></i><span><b>National Champion</b>, Formula Student Driverless China (2021, 2022)</span></li>
-        <li><i class="fa-solid fa-medal"></i><span>Second-Class Academic Scholarship — Graduate (2025)</span></li>
-        <li><i class="fa-solid fa-medal"></i><span>Second-Class Academic Scholarship — Undergraduate (2021, 2022)</span></li>
-        <li><i class="fa-solid fa-medal"></i><span>National First-Class Athlete, Badminton (2020)</span></li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul class="contact-list">
-        <li><b>Email</b> <a href="mailto:jiziheng@sjtu.edu.cn">jiziheng@sjtu.edu.cn</a></li>
-        <li><b>Affiliation</b> Global Institute of Future Technology, Shanghai Jiao Tong University, Shanghai, China</li>
-        <li><b>GitHub</b> <a href="https://github.com/kelo020304" target="_blank" rel="noopener">github.com/kelo020304</a></li>
-        <li><b>CV</b> <a href="assets/cv.pdf" target="_blank" rel="noopener">Download PDF</a></li>
-      </ul>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; 2026 Ziheng Ji (季梓衡). Building robots that understand the world. 🤖</p>
-    <p>Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a> · Static site on GitHub Pages.</p>
-  </footer>
-
+        <h3 class="awards-title">Selected honors</h3>
+        <ul class="honors"><li>National Champion, Formula Student Driverless China (2021, 2022)</li><li>Second-Class Graduate Scholarship (2025)</li><li>Second-Class Undergraduate Scholarship (2021, 2022)</li><li>National First-Class Athlete, Badminton (2020)</li></ul>
+      </section>
+      <footer>© 2026 Ziheng Ji · Layout inspired by <a href="https://github.com/LucyLing24/longling" target="_blank" rel="noopener">Long Ling's homepage</a>.</footer>
+    </main>
+  </div>
   <script>
-    (function(){
-      var root=document.documentElement;
-      var saved=localStorage.getItem('theme');
-      var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.setAttribute('data-theme',saved||(prefersDark?'dark':'light'));
-      function syncIcon(){var b=document.getElementById('themeToggle');if(b)b.textContent=root.getAttribute('data-theme')==='dark'?'☀️':'🌙';}
-      syncIcon();
-      var btn=document.getElementById('themeToggle');
-      if(btn)btn.addEventListener('click',function(){
-        var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
-        root.setAttribute('data-theme',next);localStorage.setItem('theme',next);syncIcon();
-      });
-      var burger=document.getElementById('burger');var links=document.getElementById('navlinks');
-      if(burger&&links){
-        burger.addEventListener('click',function(){links.classList.toggle('open');});
-        links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');});});
-      }
-      // scroll-spy: highlight the nav link of the section in view
-      var navA=links?Array.prototype.slice.call(links.querySelectorAll('a')):[];
-      var secs=navA.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
-      if('IntersectionObserver' in window && secs.length){
-        var io=new IntersectionObserver(function(entries){
-          entries.forEach(function(e){
-            if(e.isIntersecting){
-              navA.forEach(function(a){a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id);});
-            }
-          });
-        },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-        secs.forEach(function(s){io.observe(s);});
-      }
-    })();
+    const menu = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('#navigation');
+    function closeMenu() { menu.setAttribute('aria-expanded', 'false'); navigation.classList.remove('open'); }
+    menu.addEventListener('click', () => {
+      const open = menu.getAttribute('aria-expanded') !== 'true';
+      menu.setAttribute('aria-expanded', String(open)); navigation.classList.toggle('open', open);
+    });
+    navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
   </script>
 </body>
 </html>

@@ -1,1 +1,11 @@
 .DS_Store
+__pycache__/
+.env
+.env.*
+*.tex
+*.aux
+*.log
+*.out
+/resume*.pdf
+*private*
+codex-clipboard-*
