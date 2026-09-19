@@ -6,6 +6,7 @@ Static personal website at <https://kelo020304.github.io>, with a profile sideba
 
 - `index.html`: content and mobile navigation
 - `style.css`: desktop and mobile layouts
+- `visitor-map.js`: optional MapMyVisitors widget configuration and loading
 - `assets/profile.jpg`: portrait
 - `assets/cv.pdf`: public English resume (review-sensitive details omitted)
 - `assets/cv-zh.pdf`: public Chinese resume (review-sensitive details omitted)
@@ -26,6 +27,20 @@ The canonical repository is <https://github.com/kelo020304/kelo020304.github.io>
 2. Run `python3 scripts/check_site.py` and `git diff --check`. The same link check runs on pushes and pull requests. This check does not audit PDF text or guarantee review anonymity.
 3. Review the exact diff and the public PDFs before committing. Stage only intended public files; private research notes and resume sources stay outside this repository.
 4. Commit and push to `main`. Check the repository's Actions page for both the link check and the existing Pages deployment, then verify the live homepage and both resume downloads.
+
+## Visitor map
+
+The profile uses local SVG icons for both resumes, email, GitHub, and Google Scholar. Each link has an accessible name and a hover/keyboard-focus tooltip.
+
+The visitor section uses the same MapMyVisitors map widget as the reference homepage. Activation requires an account and a widget issued for this site:
+
+1. Visit <https://mapmyvisitors.com/add>, enter `https://kelo020304.github.io/`, sign in, and select the map widget.
+2. Copy the `d` query parameter from the generated `map.js` embed URL into `widgetId` in `visitor-map.js`. Do not copy the reference site's ID: that would display its statistics.
+3. Publish and verify that the live page shows the map and visitor count. The section stays hidden while the ID is empty; local previews never load the tracker.
+
+The widget records homepage visits and approximate visitor locations, not individual outbound-link clicks. Data collection begins after activation and depends on the third-party service being reachable. The script loads once per page view; resizing does not re-inject it. If loading fails, the section shows an unavailable message instead of an invented count.
+
+If the domain changes, update both the registered site and the hostname guard in `visitor-map.js`.
 
 ## Custom domain
 

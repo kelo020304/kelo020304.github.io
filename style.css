@@ -30,11 +30,7 @@ nav a:hover{color:#fff;text-decoration-color:var(--accent)}
 .profile h1 span{display:block;font-family:inherit;font-size:19px;font-weight:400;letter-spacing:3px;margin-top:6px}
 .degree{font-size:13px;margin:10px 0;color:#44444f}
 .profile-interests{color:var(--muted);font-size:13px;line-height:1.8;margin:15px 0 22px}
-.cv-button{display:flex;justify-content:space-between;align-items:center;background:var(--tint);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:3px;padding:8px 14px;margin:9px 0;font-size:13px;font-weight:600}
-.cv-button span{font-size:10px;letter-spacing:.7px;font-weight:500}
-.social-links{display:flex;gap:20px;justify-content:center;margin-top:21px;font-size:12px;font-weight:600}
-.profile-email{font-size:12px;margin-top:10px}
-.profile-email a{color:var(--muted)}
+.profile-email{font-size:12px;margin-top:14px;color:var(--muted)}
 .updated{font-size:10px;color:var(--muted);margin-top:18px}
 .eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:600;color:var(--muted);margin:0 0 10px}
 .about h2{font-size:36px;color:var(--text);margin-bottom:22px;letter-spacing:-1.1px;border-left:0;padding-left:0;font-weight:750}
@@ -82,16 +78,33 @@ figcaption{font-size:10px;color:var(--muted);text-align:center;padding:6px}
 .honors{padding-left:17px;font-size:12px;line-height:2}
 footer{padding:20px 0 28px;margin-top:10px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}
 .review-note{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:12px}
-.degree,.profile-interests,.cv-button,.social-links,.role,.paper-links{font-size:14px}
-.updated,.eyebrow,.cv-button span,.section-note,.badge,.tags span,.date,figcaption,footer{font-size:12px}
+.degree,.profile-interests,.role,.paper-links{font-size:14px}
+.updated,.eyebrow,.section-note,.badge,.tags span,.date,figcaption,footer{font-size:12px}
 .news-list li,.description,.experience-item ul,.education-item p,.honors{font-size:14px}
 .authors{font-size:13px}
 .project-item p,#more>p{font-size:16px}
 .publication h3{font-size:16px}
-.cv-button:hover{background:#fff0ef}
 @media(max-width:760px){nav a:hover{color:var(--accent)}}
 @media(min-width:1450px){.page-layout{gap:80px}}
-@media(min-width:761px) and (max-height:800px){.profile{top:85px;max-height:calc(100vh - 100px);overflow-y:auto;padding:0 3px}.portrait{width:170px;height:190px;margin-bottom:12px}.profile-interests{margin:10px 0 15px}.social-links{margin-top:15px}.updated{margin-top:10px}}
+@media(min-width:761px) and (max-height:800px){.profile{top:85px;max-height:calc(100vh - 100px);overflow-y:auto;padding:0 3px}.portrait{width:170px;height:190px;margin-bottom:12px}.profile-interests{margin:10px 0 15px}.updated{margin-top:10px}}
 @media(max-width:1020px){.page-layout{grid-template-columns:210px minmax(0,1fr);gap:35px}.portrait{width:190px;height:218px}.publication{grid-template-columns:165px minmax(0,1fr);gap:18px}.publication>img{width:165px}nav{gap:18px}}
 @media(max-width:760px){html{scroll-padding-top:80px}.nav-inner{padding:0 20px;min-height:60px}.wordmark{font-size:22px}.menu-toggle{display:block}nav{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--tint);padding:10px 20px;border-bottom:1px solid var(--line)}nav.open{display:flex}nav a{padding:9px 0;color:var(--text)}.page-layout{display:block;padding:30px 22px 0}.profile{position:static;max-width:300px;margin:0 auto 38px}.portrait{width:180px;height:200px;margin-bottom:16px}.profile h1 span{display:inline;font-size:18px;letter-spacing:1px;margin-left:8px}.profile-interests{margin:12px 0 15px}.profile .updated{margin-top:10px}.about h2{font-size:31px}.eyebrow{font-size:12px}h2{font-size:25px}section{margin-bottom:31px}.publication{grid-template-columns:1fr;gap:15px}.publication>img{width:100%;height:180px;max-height:none;object-fit:contain}.publication h3{font-size:15px}.authors{font-size:13px}.description{font-size:14px}.car-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.car-gallery img{height:125px}.entry-heading{gap:2px}.section-note{font-size:12px}.experience-item{gap:12px}.news-list{padding:5px 12px}.news-list li{grid-template-columns:71px 1fr;gap:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Compact, accessible profile links. Icons stay local and need no icon font. */
+.profile-links{display:flex;justify-content:center;gap:6px;margin-top:20px}
+.icon-link{position:relative;display:flex;align-items:center;justify-content:center;flex:0 1 42px;min-width:36px;height:42px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--accent);transition:background-color .15s,border-color .15s}
+.icon-link svg{width:21px;height:21px;flex:none}
+.icon-link:hover,.icon-link:focus-visible{background:#fff0ef;border-color:var(--accent);text-decoration:none}
+.icon-language{position:absolute;bottom:3px;right:3px;background:#fff;color:var(--accent-dark);padding:0 2px;font-size:8px;line-height:12px;font-weight:700;border-radius:2px}
+.icon-tooltip{position:absolute;top:calc(100% + 7px);left:50%;transform:translateX(-50%);z-index:5;white-space:nowrap;padding:4px 8px;border-radius:4px;background:var(--text);color:#fff;font-size:11px;line-height:1.5;opacity:0;visibility:hidden;pointer-events:none}
+.icon-link:hover .icon-tooltip,.icon-link:focus-visible .icon-tooltip{opacity:1;visibility:visible}
+.profile-links .icon-link:first-child .icon-tooltip{left:0;transform:none}
+.profile-links .icon-link:last-child .icon-tooltip{left:auto;right:0;transform:none}
+#visitors{padding-top:12px}
+.visitor-map{width:100%;min-height:180px;aspect-ratio:2 / 1}
+.visitor-map #mapmyvisitors-widget{max-width:100%}
+.visitor-map .mapmyvisitors-map{max-width:100%}
+.visitor-map-status,.visitor-map-credit{text-align:center;color:var(--muted);font-size:12px;margin:12px 0}
+@media(max-width:760px){#visitors .section-heading{display:block}#visitors .section-note{display:block;margin:-8px 0 16px}}
+@media(prefers-reduced-motion:reduce){.icon-link{transition:none}}

@@ -25,14 +25,31 @@
       <h1>Ziheng Ji <span lang="zh">季梓衡</span></h1>
       <p class="degree">Master's student at SJTU</p>
       <p class="profile-interests">End-to-end policy learning<br>Embodied AI · Sim-to-Real</p>
-      <a class="cv-button" href="assets/cv.pdf" target="_blank" rel="noopener">Curriculum vitae <span>EN ↗</span></a>
-      <a class="cv-button" href="assets/cv-zh.pdf" target="_blank" rel="noopener">中文简历 <span>ZH ↗</span></a>
-      <div class="social-links">
-        <a href="mailto:jiziheng@sjtu.edu.cn">Email</a>
-        <a href="https://github.com/kelo020304" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=Bebu2tcAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
+      <div class="profile-links" role="group" aria-label="Resumes and contact links">
+        <a class="icon-link" href="assets/cv.pdf" target="_blank" rel="noopener" aria-label="English CV (PDF)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 12h8M8 16h5"/></svg>
+          <span class="icon-language" aria-hidden="true">EN</span>
+          <span class="icon-tooltip" aria-hidden="true">English CV</span>
+        </a>
+        <a class="icon-link" href="assets/cv-zh.pdf" target="_blank" rel="noopener" aria-label="中文简历 (PDF)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 12h8M8 16h5"/></svg>
+          <span class="icon-language" aria-hidden="true">中</span>
+          <span class="icon-tooltip" aria-hidden="true">中文简历</span>
+        </a>
+        <a class="icon-link" href="mailto:jiziheng@sjtu.edu.cn" aria-label="Email Ziheng Ji">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span class="icon-tooltip" aria-hidden="true">Email</span>
+        </a>
+        <a class="icon-link" href="https://github.com/kelo020304" target="_blank" rel="noopener" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.72.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.09 1.15a10.7 10.7 0 0 1 5.62 0c2.15-1.45 3.09-1.15 3.09-1.15.62 1.55.23 2.7.11 2.98.73.79 1.16 1.8 1.16 3.03 0 4.32-2.63 5.28-5.14 5.56.41.35.77 1.03.77 2.08v3.09c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"/></svg>
+          <span class="icon-tooltip" aria-hidden="true">GitHub</span>
+        </a>
+        <a class="icon-link" href="https://scholar.google.com/citations?user=Bebu2tcAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-6 10 6-10 6Z"/><path d="M6 12v5c3 3 9 3 12 0v-5M22 9v8"/></svg>
+          <span class="icon-tooltip" aria-hidden="true">Google Scholar</span>
+        </a>
       </div>
-      <p class="profile-email"><a href="mailto:jiziheng@sjtu.edu.cn">jiziheng@sjtu.edu.cn</a></p>
+      <p class="profile-email">jiziheng@sjtu.edu.cn</p>
       <p class="updated">Updated September 19, 2026</p>
     </aside>
 
@@ -129,9 +146,16 @@
         <h3 class="awards-title">Selected honors</h3>
         <ul class="honors"><li>National Champion, Formula Student Driverless China (2021, 2022)</li><li>Second-Class Graduate Scholarship (2025)</li><li>Second-Class Undergraduate Scholarship (2021, 2022)</li><li>National First-Class Athlete, Badminton (2020)</li></ul>
       </section>
+      <section id="visitors" aria-labelledby="visitors-title" hidden>
+        <div class="section-heading"><h2 id="visitors-title">Around the world</h2><span class="section-note">Visitors to this homepage</span></div>
+        <div id="visitor-map" class="visitor-map"></div>
+        <p id="visitor-map-status" class="visitor-map-status" role="status">Loading visitor map…</p>
+        <p class="visitor-map-credit">Visitor locations &amp; page views · <a href="https://mapmyvisitors.com/" target="_blank" rel="noopener">MapMyVisitors</a></p>
+      </section>
       <footer>© 2026 Ziheng Ji · Layout inspired by <a href="https://github.com/LucyLing24/longling" target="_blank" rel="noopener">Long Ling's homepage</a>.</footer>
     </main>
   </div>
+  <script src="visitor-map.js" defer></script>
   <script>
     const menu = document.querySelector('.menu-toggle');
     const navigation = document.querySelector('#navigation');
