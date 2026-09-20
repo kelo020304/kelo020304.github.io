@@ -50,7 +50,7 @@ After obtaining a domain, verify ownership in GitHub's Pages settings, configure
 
 ## Content notes
 
-As of September 19, 2026, Zhuoyu is marked as incoming with an expected start of September 21. Update this status after the start is confirmed; no department, position, or responsibilities have been assumed.
+As of September 20, 2026, Zhuoyu is marked as incoming with an expected start of September 21. The listed role is Algorithm Engineer Intern in the Simulation and Post-Training Algorithms Department. Update the status after the start is confirmed.
 
 During anonymous review, the public site and downloadable resumes omit identifying details of manuscripts under review. Do not add manuscript titles, author lists, submission venues or IDs, review links, screenshots, or private resume sources to this repository. The review count is shown only in aggregate. Keep private tracking notes outside this repository.
 
