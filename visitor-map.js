@@ -1,7 +1,7 @@
 (() => {
   // Paste the d= value from the embed code issued for https://kelo020304.github.io/.
   // This is a public widget ID, not an account password or API secret.
-  const widgetId = '';
+  const widgetId = 'Zm6IDxN1KKB_dfPg8Z7QkYISJMKL2H0GA-6MAEXQSjw';
   const section = document.querySelector('#visitors');
   const container = document.querySelector('#visitor-map');
   const status = document.querySelector('#visitor-map-status');
